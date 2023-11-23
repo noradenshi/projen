@@ -3,12 +3,12 @@ Bash Project Generator
 
 Made to automate simple project-creation
 
-### Usage:
+### Usage
 ```bash
 projen.sh <lang> <name>
 ```
 
-### Supported languages:
+### Supported languages
 * C
   * Mason
     * C99
