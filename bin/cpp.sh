@@ -2,7 +2,7 @@
 set -e
 
 # About:
-# Generates a C meson project
+# Generates a C++ meson project
 
 # Structure:
 #
@@ -10,10 +10,10 @@ set -e
 #   /bin
 #   /build
 #   /src
-#       main.c
+#       main.cpp
 #   meson.build 
 
-std=("c89" "c99" "c11" "c17" "c23")
+std=("c++98" "c++11" "c++14" "c++17" "c++20" "c++23" "c++2c")
 printf "Valid standards:\n";
 i=0
 for f in ${std[@]}; do
@@ -31,25 +31,25 @@ cd $name
 
 mkdir bin src
 
-cat <<- EOF > ./src/main.c
-#include <stdio.h>
+cat <<- EOF > ./src/main.cpp
+#include <iostream>
 
 int main()
 {
-    printf("Hello world!\n");
+    std::cout << "Hello world!\n";
     return 0;
 }
 EOF
 
 cat <<- EOF > ./meson.build
-project('$name', 'c',
+project('$name', 'cpp',
   default_options: [
     'prefix=${PWD}',
-    'c_std=${std[$std_ch]}'
+    'cpp_std=${std[$std_ch]}'
   ]
 )
 
-executable('exe', 'src/main.c', install: true)
+executable('exe', 'src/main.cpp', install: true)
 EOF
 
-C=clang meson setup build
+CXX=clang++ meson setup build

@@ -4,10 +4,10 @@ set -e
 # Projen - Bash Project Generator
 # Author: noradenshi
 # Github: noradenshi/projen
-# License: GPLv2
+# License: MIT
 
 if [ ! $# = 2 ]; then
-    printf "Usage: $0 <lang> <name>";
+    printf "Usage: $(basename $0) <lang> <name>\n";
     exit 0
 fi
 
