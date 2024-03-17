@@ -7,6 +7,6 @@ projen.sh <lang> <name>
 ```
 
 ### Supported languages
-* C     (Mason)
-* C++   (Mason)
-* Java  (Ant)
+* C			(Meson)
+* C++		(Meson)
+* Java		(Ant)
