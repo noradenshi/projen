@@ -14,11 +14,11 @@ set -e
 #           Main.java
 #   build.xml 
 
-mkdir $name
-cd $name
-
 read -p "Package name: " package;
 read -p "MainClass name: " mainclass;
+
+mkdir $name
+cd $name
 
 mkdir lib -p src/$package
 

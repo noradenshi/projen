@@ -13,7 +13,7 @@ set -e
 #       main.c
 #   meson.build 
 
-std=("c89" "c99" "c11" "c17" "c23")
+std=("c89" "c99" "c11" "c17" "c2x")
 printf "Valid standards:\n";
 i=0
 for f in ${std[@]}; do
