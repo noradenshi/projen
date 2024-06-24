@@ -44,12 +44,15 @@ EOF
 cat <<- EOF > ./meson.build
 project('$name', 'cpp',
   default_options: [
-    'prefix=${PWD}',
     'cpp_std=${std[$std_ch]}'
   ]
 )
 
-executable('exe', 'src/main.cpp', install: true)
+dir = meson.current_source_dir()
+
+executable('exe', 'src/main.cpp',
+  install_dir: dir + '/bin',
+  install: true)
 EOF
 
 CXX=clang++ meson setup build
